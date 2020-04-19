@@ -74,6 +74,12 @@ button {
   text-transform: lowercase;
 }
 
+.SmallActionUnderline {
+  font-size: 25px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
 .OptionCol {
   margin-left: 40px;
 }
@@ -96,21 +102,21 @@ button {
   color: black;
 }
 
-.FoodArea {
+.TempArea {
   position: relative;
 }
 
-.FoodBar {
+.TempBar {
   margin-top: 150px;
   display: flex;
   justify-content: center;
 }
 
-.FoodCircle {
+.TempCircle {
   position: absolute;
   top: 10px;
 }
-.FoodCircleOuter {
+.TempCircleOuter {
   position: absolute;
   left: -40px;
   top: -40px;
@@ -119,7 +125,7 @@ button {
   width: 80px;
   height: 80px;
 }
-.FoodCircleInner {
+.TempCircleInner {
   position: absolute;
   background-color: white;
   border-radius: 50%;
@@ -129,7 +135,7 @@ button {
   height: 50px;
 }
 
-.FoodText {
+.TempText {
   display: flex;
   justify-content: center;
   margin-top: 35px;
@@ -137,8 +143,16 @@ button {
   font-size: 20px;
 }
 
+.TempCurrent {
+  position: relative;
+  top: -60px;
+  font-size: 16px;
+  transform: translateX(-50%);
+}
+
+
 .BarLeft {
-  width: 132px;
+  width: 73px;
   height: 22px;
   background-color: white;
   border-radius: 10px 0px 0px 10px;
@@ -146,22 +160,22 @@ button {
 }
 
 .BarCenter {
-  width: 132px;
+  width: 73px;
   height: 22px;
   background-color: white;
   cursor: pointer;
 }
 
 .BarRight {
-  width: 132px;
+  width: 73px;
   height: 22px;
   background-color: white;
   border-radius: 0px 10px 10px 0px;
   cursor: pointer;
 }
 
-.FoodTextGap {
-  width: 480px;
+.TempTextGap {
+  width: 550px;
 }
 
 .Results {
@@ -173,8 +187,15 @@ button {
   margin-bottom: 40px;
 }
 
-.ExploreLink {
+.AirQualityLink {
   font-weight: bold;
+  font-size: 22px;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+
+.ExploreLink {
   font-size: 35px;
   text-decoration: underline;
   margin-top: 60px;
@@ -192,11 +213,17 @@ button {
   border: solid 1px white;
 }
 
+.ExploreImage img {
+  width: 100%;
+  height: 100%;
+}
+
 .ExploreLinkSmall {
   font-size: 22px;
   text-decoration: underline;
   margin-top: 10px;
   text-transform: uppercase;
+  padding-left: 0px;
 }
 
 .Subject {
@@ -213,10 +240,30 @@ button {
   border: solid 1px white;
 }
 
+.SubjectImage img {
+  width: 100%;
+  height: 100%;
+}
+
 .SubjectBody {
   max-width: 470px;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 26px;
+}
+
+.SurveyBody {
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.SurveyText {
+  color: white;
+  width: 700px;
+  background-color: #222222;
+  border: none;
+  margin: 20px 0px;
+  height: 40px;
+  font-size: 16px
 }
 
 .SubjectLinks {
@@ -225,6 +272,7 @@ button {
   right: 0;
   top: 290px;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 .SubjectExplore {
@@ -232,6 +280,58 @@ button {
   font-weight: bold;
   margin-top: 10px;
   text-transform: uppercase;
-  margin-right: 20px
 }
 
+.airQTable {
+  border-collapse: collapse;
+  position: relative;
+  top: -30px;
+}
+
+.airQTable tr {
+  height: 70px;
+}
+
+.airQTable tr:nth-child(1) {
+  background-color: green;
+  color: black;
+}
+.airQTable tr:nth-child(2) {
+  background-color: yellow;
+  color: black;
+}
+
+.airQTable tr:nth-child(3) {
+  background-color: orange;
+}
+
+.airQTable tr:nth-child(4) {
+  background-color: red;
+}
+
+.airQTable tr:nth-child(5) {
+  background-color: purple;
+}
+
+.airQTable tr:nth-child(6) {
+  background-color: darkred;
+}
+
+.airQTable td {
+  font-size: 22px;
+  min-width: 120px;
+  padding: 10px
+}
+
+.airQColHead {
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: bold;
+  width: 270px;
+}
+
+.RightAlignButton {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
