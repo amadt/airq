@@ -86,7 +86,7 @@ function App() {
   const [improveText, setImproveText] = useState('');
   const [impactText, setImpactText] = useState('');
   const [commentText, setCommentText] = useState('');
-
+  const [mouseDown, setMouseDown] = useState(false);
 
   const score = calcScore(isChangeDay, isCar, isTemp);
   const scoreColor = calcScoreColor(score);
@@ -160,16 +160,61 @@ function App() {
       <Option label="No" {...recycleProps} />
     </div>,
     <div className="TempArea">
-      <div className="TempBar">
-        <div className="BarLeft" onClick={() => setIsTemp(0)} />
-        <div className="BarCenter" onClick={() => setIsTemp(1)} />
-        <div className="BarCenter" onClick={() => setIsTemp(2)} />
-        <div className="BarCenter" onClick={() => setIsTemp(3)} />
-        <div className="BarCenter" onClick={() => setIsTemp(4)} />
-        <div className="BarCenter" onClick={() => setIsTemp(5)} />
-        <div className="BarCenter" onClick={() => setIsTemp(6)} />
-        <div className="BarCenter" onClick={() => setIsTemp(7)} />
-        <div className="BarRight" onClick={() => setIsTemp(8)} />
+      <div className="TempBar" onMouseDown={() => setMouseDown(true)} onMouseUp={() => setMouseDown(false)}>
+        <div
+          className="BarLeft"
+          onClick={() => setIsTemp(0)}
+        />
+        <div
+          className="BarCenter"
+          onMouseDown={() => setIsTemp(1)}
+          onMouseOver={() => { if (mouseDown) { setIsTemp(1) } }}
+          onTouchOver={() => { setIsTemp(1) }}
+        />
+        <div
+          className="BarCenter"
+          onMouseDown={() => setIsTemp(2)}
+          onMouseOver={() => { if (mouseDown) { setIsTemp(2) } }}
+          onTouchOver={() => { setIsTemp(2) }}
+        />
+        <div
+          className="BarCenter"
+          onClick={() => setIsTemp(3)}
+          onMouseDown={() => setIsTemp(3)}
+          onMouseOver={() => { if (mouseDown) { setIsTemp(3) } }}
+          onTouchOver={() => { setIsTemp(3) }}
+        />
+        <div
+          className="BarCenter"
+          onClick={() => setIsTemp(4)}
+          onMouseDown={() => setIsTemp(4)}
+          onMouseOver={() => { if (mouseDown) { setIsTemp(4) } }}
+          onTouchOver={() => { setIsTemp(4) }}
+        />
+        <div
+          className="BarCenter"
+          onMouseDown={() => setIsTemp(5)}
+          onMouseOver={() => { if (mouseDown) { setIsTemp(5) } }}
+          onTouchOver={() => { setIsTemp(5) }}
+        />
+        <div
+          className="BarCenter"
+          onMouseDown={() => setIsTemp(6)}
+          onMouseOver={() => { if (mouseDown) { setIsTemp(6) } }}
+          onTouchOver={() => { setIsTemp(6) }}
+        />
+        <div
+          className="BarCenter"
+          onMouseDown={() => setIsTemp(7)}
+          onMouseOver={() => { if (mouseDown) { setIsTemp(7) } }}
+          onTouchOver={() => { setIsTemp(7) }}
+        />
+        <div
+          className="BarRight"
+          onMouseDown={() => setIsTemp(8)}
+          onMouseOver={() => { if (mouseDown) { setIsTemp(8) } }}
+          onTouchOver={() => { setIsTemp(8) }}
+        />
       </div>
       <div className="TempText">
         <div>60° F</div>
@@ -183,7 +228,7 @@ function App() {
       </div>
     </div>,
     <div className="Results">
-      <div className="ResultLine">You are a <span style={{ color: scoreColor.toLowerCase() }}>{scoreColor}</span> polluter. ({score} Points)</div>
+      <div className="ResultLine">You are a <span style={{ color: scoreColor.toLowerCase() }}>{scoreColor}</span> polluter.</div>
       <button
         className="ExploreLink"
         onClick={() => setStep(5)}
@@ -231,9 +276,9 @@ function App() {
         <img src="./cars.png" />
       </div>
       <div className="SubjectBody">
-        Mobile sources such as vehicles, trains, and planes create half of the PM2.5 (the main pollutant) in a Utah inversion event.
+        Mobile sources, such as vehicles, trains, and planes, create half of the PM2.5 (the main pollutant) in a Utah inversion event.
         <br/><br/>
-        Area sources like businesses and homes are the second leading sources of air pollutant.
+        Area sources, like businesses and homes, are the second leading sources of air pollutant. In fact, approximately 39% of air pollution comes from sources such as central heating for homes and small businesses.
         <br/><br/>
         <b>Ways you can help clear the air:</b><br />
         • Take public transport<br />
@@ -259,15 +304,36 @@ function App() {
           </button>
         </div>
       </div>
+      <div className="CitationLinks">
+        <div className="CitationTitle">Citations</div>
+        <div>
+          <button
+            className="CitationLinkSmall"
+            onClick={() => window.open('Air.utah.gov', 'airqinfo')}
+          >
+            Air.utah.gov
+          </button>
+          (Ozone and Particulate Matter Overview)
+        </div>
+        <div>
+          <button
+              className="CitationLinkSmall"
+              onClick={() => window.open('Deq.utah.gov', 'airqinfo')}
+            >
+            Deq.utah.gov
+          </button>
+          (Understanding Utah’s Air Quality)
+        </div>
+      </div>
     </div>,
     <div className="Subject">
       <div className="SubjectImage">
         <img src="./health.png" />
       </div>
       <div className="SubjectBody">
-        PM2.5 and ground level ozone can both cause respiratory issues through inhalation, espectially in the most at risk such as children, the elderly, those who have asthma or other lung related conditions. However, event healthy individuals can be affected from high levels of air pollution.
+        PM2.5 and ground level ozone cause respiratory issues through inhalation, especially in the most at risk populations. These populations include children, the elderly, those who have asthma, and those with other lung related conditions.
         <br/><br/>
-        The Air Quality Index is a tool used to report local air quilify and how it might impact your health that day.
+        The Air Quality Index is a tool used to report local air quility and how it might impact your health that day.
         <br/><br/>
         <button
           className="AirQualityLink"
@@ -293,6 +359,18 @@ function App() {
           </button>
         </div>
       </div>
+      <div className="CitationLinks">
+        <div className="CitationTitle">Citations</div>
+        <div>
+          <button
+            className="CitationLinkSmall"
+            onClick={() => window.open('2AirNow.gov', 'airqinfo')}
+          >
+            2AirNow.gov
+          </button>
+          (Your Health)
+        </div>
+      </div>
     </div>,
     <div className="Subject">
       <div className="SubjectImage">
@@ -303,7 +381,7 @@ function App() {
         <br/><br/>
         Particulate matter, or PM2.5, (the main component of Utah's air pollution) is a mixture of microscopic dust/soot particles.
         <br/><br/>
-        Ozone, or O3, is formed when sunlight and heat break apart hydrocarbons and nitrogen oxides and they recombine into new structures.
+        Ozone, or O<sub>3</sub>, is formed when sunlight and heat break apart hydrocarbons and nitrogen oxides and they recombine into new structures.
       </div>
       <div className="SubjectLinks">
         <div className="SubjectExplore">Explore</div>
@@ -322,43 +400,69 @@ function App() {
           </button>
         </div>
       </div>
+      <div className="CitationLinks">
+        <div className="CitationTitle">Citations</div>
+        <div>
+          <button
+              className="CitationLinkSmall"
+              onClick={() => window.open('Deq.utah.gov', 'airqinfo')}
+            >
+            Deq.utah.gov
+          </button>
+          (Understanding Utah’s Air Quality)
+        </div>
+        <div>
+          <button
+            className="CitationLinkSmall"
+            onClick={() => window.open('Sustainability.utah.edu', 'airqinfo')}
+          >
+            Sustainability.utah.edu
+          </button>
+          (10 Ways You can Improve Air Quality)
+        </div>
+      </div>
     </div>,
-    <table className="airQTable">
-      <tr>
-        <td className="airQColHead">Good</td>
-        <td>0-50</td>
-        <td>AQ satisfactory, poses little to no risk</td>
-      </tr>
-      <tr>
-        <td className="airQColHead">Moderate</td>
-        <td>51-100</td>
-        <td>Acceptable, moderate concern for few unusually sensitive to air pollution.</td>
-      </tr>
-      <tr>
-        <td className="airQColHead">Unhealthy for<br />sensitive groups</td>
-        <td>101-150</td>
-        <td>Sensitive groups may be affected.<br />General public not likely affected.</td>
-      </tr>
-      <tr>
-        <td className="airQColHead">Unhealthy</td>
-        <td>0-50</td>
-        <td>Everyone may begin to experience health effects.</td>
-      </tr>
-      <tr>
-        <td className="airQColHead">Very Unhealthy</td>
-        <td>0-50</td>
-        <td>All may experience more serious health effects, sensitive groups more at risk.</td>
-      </tr>
-      <tr>
-        <td className="airQColHead">Hazardous</td>
-        <td>0-50</td>
-        <td>Emergency conditions, entire population more likely to be affected.</td>
-      </tr>
-    </table>,
+    <div className="airQIndexRoot">
+      <table className="airQTable">
+        <tr>
+          <td className="airQColHead">Good</td>
+          <td>0-50</td>
+          <td>AQ satisfactory, poses little to no risk</td>
+        </tr>
+        <tr>
+          <td className="airQColHead">Moderate</td>
+          <td>51-100</td>
+          <td>Acceptable, moderate concern for few unusually sensitive to air pollution.</td>
+        </tr>
+        <tr>
+          <td className="airQColHead">Unhealthy for<br />sensitive groups</td>
+          <td>101-150</td>
+          <td>Sensitive groups may be affected.<br />General public not likely affected.</td>
+        </tr>
+        <tr>
+          <td className="airQColHead">Unhealthy</td>
+          <td>151-200</td>
+          <td>Everyone may begin to experience health effects.</td>
+        </tr>
+        <tr>
+          <td className="airQColHead">Very Unhealthy</td>
+          <td>201-300</td>
+          <td>All may experience more serious health effects, sensitive groups more at risk.</td>
+        </tr>
+        <tr>
+          <td className="airQColHead">Hazardous</td>
+          <td>301-500</td>
+          <td>Emergency conditions, entire population more likely to be affected.</td>
+        </tr>
+      </table>
+      <div className="CitationLinksIndex">
+        Table taken from AirNow.gov
+      </div>
+    </div>,
     <div className="SurveyBody">
       We would love your feedback on our project so we can help improve the experience in the future.
       <br /><br />
-      How could the app's functionailty be improved?
+      How could the app's functionality be improved?
       <br />
       <input
         type="text"
@@ -376,7 +480,7 @@ function App() {
         value={impactText}
       />
       <br />
-      Commends
+      Comments
       <br />
       <input
         type="text"
@@ -395,7 +499,7 @@ function App() {
         <div className="Main">
           <div
             className="Question"
-            style={{ marginTop: step > 5 ? -40 : 0 }}
+            style={{ marginTop: step >= 6 && step <= 8 ? -80 : step > 5 ? -40 : 0 }}
           >
             {titles[step]}
           </div>
@@ -418,7 +522,7 @@ function App() {
                 className="SmallActionButton"
                 onClick={() => setStep(10)}
               >
-                Start Over
+                Finish and provide feedback
               </button>
             </React.Fragment>
           ) : step === 9 ? (
@@ -464,7 +568,7 @@ function App() {
                 className="SmallActionButton"
                 onClick={() => setStep(10)}
               >
-                Start Over
+                Finish and provide feedback
               </button>
             </React.Fragment>
           ) : (

@@ -234,7 +234,7 @@ button {
 .SubjectImage {
   position: absolute;
   left: 500px;
-  top: -70px;
+  top: -90px;
   width: 412px;
   height: 285px;
   border: solid 1px white;
@@ -270,7 +270,7 @@ button {
   position: absolute;
   display: flex;
   right: 0;
-  top: 290px;
+  top: 220px;
   justify-content: space-between;
   flex-direction: column;
 }
@@ -280,6 +280,43 @@ button {
   font-weight: bold;
   margin-top: 10px;
   text-transform: uppercase;
+}
+
+.airQIndexRoot {
+  position: relative;
+}
+
+.CitationLinksIndex {
+  position: absolute;
+  font-size: 16px;
+  left: 0px;
+  bottom: -20px;
+}
+
+.CitationLinks {
+  position: absolute;
+  display: flex;
+  font-size: 16px;
+  right: 0;
+  top: 360px;
+  justify-content: space-between;
+  flex-direction: column;
+  text-transform: initial;
+}
+
+.CitationTitle {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.CitationLinkSmall {
+  font-size: 16px;
+  text-decoration: underline;
+  margin-top: 10px;
+  padding-left: 0px;
+  display: inline-block;
 }
 
 .airQTable {
